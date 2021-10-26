@@ -1,0 +1,60 @@
+.job-card {
+    border-bottom: 1px solid #cccccc;
+    padding: 20px 30px;
+    cursor: pointer;
+}
+
+.job-card-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #555555;
+    transition: all 0.2s;
+}
+
+.job-card-content {
+    font-size: 16px;
+    color: #333333;
+    min-height: 90px;
+}
+
+.job-card:hover .job-card-title {
+    color: #14a800;
+}
+
+.more-btn {
+    font-weight: 500;
+    margin-left: 5px;
+    color: #14a800;
+    transition: all 0.2s;
+}
+
+.more-btn:hover {
+    text-decoration: underline;
+}
+
+.job-card-bottom {
+    display: flex;
+}
+
+.job-card-bottom p {
+    margin: 0 10px;
+    font-size: 14px;
+    color: #555555;
+    display: flex;
+    align-items: center;
+}
+
+.job-card-bottom .manager-name svg {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.job-card-bottom .company-name svg {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.job-card-bottom .company-name {
+    font-weight: 500;
+}

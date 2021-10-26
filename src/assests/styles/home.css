@@ -1,0 +1,25 @@
+.home-container {
+    margin-top: 50px;
+}
+
+.jobs-container {
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    min-height: 85vh;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.jobs-title {
+    margin: 15px 30px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #14a800;
+}
+
+.jobs-cotainer hr {
+    border-top: none;
+    border-bottom: 1px solid #cccccc;
+}

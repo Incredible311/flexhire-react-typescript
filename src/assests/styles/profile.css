@@ -1,0 +1,100 @@
+.home-container {
+    margin-top: 50px;
+}
+
+.profile-container {
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    min-height: 80vh;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.profile-avatar-block {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    flex-wrap: wrap;
+}
+
+.profile-avatar-block-left {
+    display: flex;
+    align-items: center;
+}
+
+.profile-avatar-block-left .profile-avatar {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.profile-avatar-block-left .user-name {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.experience-period {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: #666666;
+}
+
+.profile-avatar-block-left .user-location {
+    margin: 5px 0;
+    color: #666666;
+    display: flex;
+    align-content: center;
+}
+
+.profile-avatar-block-left .user-location svg {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.hourly-price {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 30px;
+    background-color: #14a800;
+}
+
+.profile-container hr {
+    border-top: none;
+    border-bottom: 1px solid #cccccc;
+    margin: 0;
+}
+
+.skills-content {
+    padding: 20px 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.MuiTab-textColorPrimary.Mui-selected {
+    color: #14a800!important;
+}
+
+.video-answers-content {
+    padding: 30px;
+}
+
+.video-answers-content .MuiGrid-item {
+    padding: 10px;
+}
+
+.work-education-content {
+    padding: 30px;
+}

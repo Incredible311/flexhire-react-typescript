@@ -1,0 +1,36 @@
+.header-container {
+    width: 100%;
+    box-shadow: 0px 0px 12px -7px #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.avatar-image {
+    margin: 10px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.user-avatar-menu .MuiPaper-elevation8{
+    left: auto!important;
+    right: 20px!important;
+    top: 63px!important;
+}
+
+.user-avatar-menu .MuiListItem-button {
+    padding: 5px 40px;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.logo h2 {
+    color: #14a800;
+    margin-left: 30px;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 0    ;
+}

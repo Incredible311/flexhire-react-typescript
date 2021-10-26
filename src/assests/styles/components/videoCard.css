@@ -1,0 +1,9 @@
+.video-card {
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.video-card video {
+    width: 100%;
+}
