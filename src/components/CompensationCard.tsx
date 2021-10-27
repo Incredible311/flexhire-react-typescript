@@ -13,7 +13,7 @@ type compensationProps = {
 
 export default function CompensationCard(props: compensationProps) {
 
-    const {hourly, annual, availability, type} = props;
+    const {hourly, annual, type} = props;
 
     return (
         <Card className="compensation-card">

@@ -13,9 +13,9 @@ export default function Dashboard() {
 
     const verifyBadge = useMemo(() => {
         if (userData) {
-            return userData.verified ? <div className="d-flex verified-badge">
+            return userData.verified ? <div className="d-flex dash-verified-badge">
                 <VerifiedUser /> Verified
-            </div> : <div className="d-flex unverified-badge">
+            </div> : <div className="d-flex dash-unverified-badge">
                 <VerifiedUser /> Unverified
             </div>
         }
@@ -104,23 +104,26 @@ export default function Dashboard() {
     }, [chatContracts])
 
     const noJobOfferMemo = useMemo(() => {
-        return <Card className="no-offer-card">
+        return userData && <Card className="no-offer-card">
             <div className="no-offer-title"><AssignmentTurnedIn /> <h3>0</h3></div>
             <p>No job offer at the moment. When a client is interested in working with you, you'll see job offers here.</p>
         </Card>
-    }, [])
+    }, [userData])
 
-    useEffect(() => {
+    useEffect((): any => {
+        let isSubscribed = true;
         fetchProfile().then(response => {
-            setUserData(response)
+            isSubscribed && setUserData(response)
         })
         fetchSuggestQuestions().then(response => {
-            setQuestions(response)
+            isSubscribed && setQuestions(response)
         })
         fetchChatContracts().then(response => {
-            setChatContracts(response)
+            isSubscribed && setChatContracts(response)
         })
-    }, [setUserData, setQuestions, setChatContracts])
+        return () => (isSubscribed = false)
+
+    }, [])
 
     return (
         <div>

@@ -6,27 +6,41 @@ import "../assests/styles/home.css"
 
 export default function Home() {
 
-    const [jobs, setJobs] = useState<any>()
+    const [jobs, setJobs] = useState<any>();
+    const [loading, setLoading] = useState<boolean>(true);
 
     const jobCardsMemo = useMemo(() => {
-        return jobs && jobs.map((job: any, id: number) => {
-            return <JobCard
-                key={id}
-                id={job.id}
-                title={job.job_title}
-                content={job.description}
-                company={job.company_name}
-                hiringManager={job.hiring_manager}
+        if (loading) {
+            return <div className="jobs-loading-container">
+                <div>
+                    <h3>Please Wait</h3>
+                    <p>Loading jobs...</p>
+                </div>
+            </div>
+        } else {
+            return jobs && jobs.map((job: any, id: number) => {
+                return <JobCard
+                    key={id}
+                    id={job.id}
+                    title={job.job_title}
+                    content={job.description}
+                    company={job.company_name}
+                    hiringManager={job.hiring_manager}
                 />
-        })
-    }, [jobs])
+            })
+        }
 
-    useEffect(() => {
+    }, [jobs, loading])
+
+    useEffect((): any => {
+        let isSubscribed = true;
+
         fetchJobs().then(response => {
-            setJobs(response)
+            isSubscribed && setLoading(false)
+            isSubscribed && setJobs(response)
         })
-
-    }, [setJobs])
+        return () => (isSubscribed = false)
+    }, [setJobs, setLoading])
 
     return (
         <div className="home-container">

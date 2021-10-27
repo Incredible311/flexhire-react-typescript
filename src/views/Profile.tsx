@@ -3,15 +3,15 @@ import { Grid, Avatar, Tab, Tabs } from '@material-ui/core';
 import { VerifiedUser, School, Work } from '@material-ui/icons';
 import SubTypeItem from '../components/SubTypeItem';
 import SkillItem from '../components/SkillItem';
-import SwipeableViews from 'react-swipeable-views';
 import VideoCard from '../components/VideoCard';
 import { fetchProfile } from '../graphql/fetchGraphql'
 import "../assests/styles/profile.css"
 
 export default function Profile() {
 
-    const [userData, setUserData] = useState<any>()
-    const [index, setIndex] = useState(0)
+    const [userData, setUserData] = useState<any>();
+    const [index, setIndex] = useState(0);
+    const [loading, setLoading] = useState<boolean>(true);
 
     const handleChangeIndex = useCallback((event, value) => {
         setIndex(value)
@@ -41,7 +41,7 @@ export default function Profile() {
 
     const workEducationMemo = useMemo(() => {
         return userData && userData.timeline_entries.map((timeline: any, id: number) => {
-            return <div className="timeline-div">
+            return <div key={id} className="timeline-div">
                 <div className="timeline-icon">
                     {
                         timeline.entry_type === "work" ? <Work /> : <School />
@@ -56,73 +56,85 @@ export default function Profile() {
         })
     }, [userData])
 
-    useEffect(() => {
+    useEffect((): any => {
+        let isSubscribed = true;
         fetchProfile().then(response => {
-            setUserData(response)
+            isSubscribed && setLoading(false)
+            isSubscribed && setUserData(response)
         })
-
-    }, [setUserData])
+        return () => (isSubscribed = false)
+    }, [])
 
     const profileMemo = useMemo(() => {
-        return userData && <div className="profile-container">
-            <div className="profile-top-block">
-                <Grid container>
-                    <Grid item sm={4} xs={12} className="verify-tag-block">
-                        {verifyBadge}
-                        <p className="time-zone-text">{userData.timezone}</p>
-                    </Grid>
-                    <Grid item sm={4} xs={12} className="d-flex justify-center">
-                        <Avatar src={userData.avatar_url} className="profile-avatar" />
-                    </Grid>
-                    <Grid item sm={4} xs={12}></Grid>
-                </Grid>
+        if (loading) {
+            return <div className="profile-loading-container">
                 <div>
-                    <h3 className="user-name">{userData.first_name} {userData.last_name} - {userData.profile.freelancer_type} </h3>
-                    <h3 className="user-experience">{userData.profile.total_experience} Years Experience</h3>
+                    <h3>Please Wait</h3>
+                    <p>Loading your profile...</p>
                 </div>
-                <div className="d-flex justify-center flex-wrap">
-                    {subTypesMemo}
-                </div>
-                <p className="profile-introduction-text">{userData.profile.text_introduction}</p>
-                <div className="skills-content">
-                    {skillsMemo}
-                </div>
-            </div>
 
-            <hr />
-            <div className="vidoes-content">
-                <Tabs
-                    value={index}
-                    onChange={handleChangeIndex}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    variant="fullWidth"
-                    className="tabs-container"
-                >
-                    <Tab label="Video Answers" />
-                    <Tab label="Work & Education" />
-                </Tabs>
-                <SwipeableViews
-                    index={index}
-                    onChangeIndex={setIndex}
-                >
-                    <div className="video-answers-content">
-                        <Grid container>
-                            <Grid item sm={6} xs={12}>
-                                <VideoCard />
-                            </Grid>
-                            <Grid item sm={6} xs={12}>
-                                <VideoCard />
-                            </Grid>
-                        </Grid>
-                    </div>
-                    <div className="work-education-content">
-                        {workEducationMemo}
-                    </div>
-                </SwipeableViews>
             </div>
-        </div >
-    }, [userData, index, handleChangeIndex, skillsMemo, subTypesMemo, verifyBadge, workEducationMemo])
+        } else {
+            return userData && <div className="profile-container">
+                <div className="profile-top-block">
+                    <Grid container>
+                        <Grid item sm={4} xs={12} className="verify-tag-block">
+                            {verifyBadge}
+                            <p className="time-zone-text">{userData.timezone}</p>
+                        </Grid>
+                        <Grid item sm={4} xs={12} className="d-flex justify-center">
+                            <Avatar src={userData.avatar_url} className="profile-avatar" />
+                        </Grid>
+                        <Grid item sm={4} xs={12}></Grid>
+                    </Grid>
+                    <div>
+                        <h3 className="user-name">{userData.first_name} {userData.last_name} - {userData.profile.freelancer_type} </h3>
+                        <h3 className="user-experience">{userData.profile.total_experience} Years Experience</h3>
+                    </div>
+                    <div className="d-flex justify-center flex-wrap">
+                        {subTypesMemo}
+                    </div>
+                    <p className="profile-introduction-text">{userData.profile.text_introduction}</p>
+                    <div className="skills-content">
+                        {skillsMemo}
+                    </div>
+                </div>
+
+                <hr />
+                <div className="vidoes-content">
+                    <Tabs
+                        value={index}
+                        onChange={handleChangeIndex}
+                        indicatorColor="primary"
+                        textColor="primary"
+                        variant="fullWidth"
+                        className="tabs-container"
+                    >
+                        <Tab label="Video Answers" />
+                        <Tab label="Work & Education" />
+                    </Tabs>
+                    {
+                        index === 0 && <div className="video-answers-content">
+                            <Grid container>
+                                <Grid item sm={6} xs={12}>
+                                    <VideoCard />
+                                </Grid>
+                                <Grid item sm={6} xs={12}>
+                                    <VideoCard />
+                                </Grid>
+                            </Grid>
+                        </div>
+                    }
+                    {
+                        index === 1 && <div className="work-education-content">
+                            {workEducationMemo}
+                        </div>
+                    }
+                </div>
+            </div >
+        }
+
+    }, [userData, index, handleChangeIndex, skillsMemo, subTypesMemo, verifyBadge, workEducationMemo, loading])
 
     return (
         <div className="home-container">

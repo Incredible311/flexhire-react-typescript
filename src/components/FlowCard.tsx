@@ -15,7 +15,7 @@ export default function FlowCard(props: flowCardProps) {
 
     const flowsMemo = useMemo(() => {
         return flows.map((flow: String, id: number) => {
-            return <div className={id === status ? "active-flow-item" : "flow-item"}>
+            return <div key={id} className={id === status ? "active-flow-item" : "flow-item"}>
                 <div>
                     <div className="flow-number">{id === status ? <Check /> : id + 1}</div>
                 </div>

@@ -20,31 +20,31 @@
 
 .user-avatar-view .user-name {
     font-size: 24px;
-    color: #666666;
+    color: #ffffff;
     font-weight: 700;
     margin: 0;
     margin-bottom: 5px;
 }
 
-.verified-badge {
+.dash-verified-badge {
     color: #14a800;
     font-size: 14px;
     font-weight: 500;
     align-items: center
 }
 
-.verified-badge svg {
+.dash--badge svg {
     font-size: 18px;
 }
 
-.unverified-badge {
-    color: #666666;
+.dash-unverified-badge {
+    color: #cccccc;
     font-size: 14px;
     font-weight: 500;
     align-items: center;
 }
 
-.unverified-badge svg {
+.dash-unverified-badge svg {
     font-size: 18px;
 }
 

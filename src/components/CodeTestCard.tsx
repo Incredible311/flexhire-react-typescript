@@ -1,17 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { Card } from '@material-ui/core';
-import { useLocation } from 'react-router-dom';
 import "../assests/styles/components/codeTestCard.css";
 
 export default function CodeTestCard(){
-    const location = useLocation();
-    const [id, setId] = useState<number>();
-
-    useEffect(() => {
-
-        const tId: any = new URLSearchParams(location.search).get('id');
-        setId(parseInt(tId))
-    }, [setId, location])
 
     return (
         <Card className="code-test-card">
