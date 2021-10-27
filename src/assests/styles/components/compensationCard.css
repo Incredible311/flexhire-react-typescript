@@ -1,0 +1,72 @@
+.compensation-card {
+    margin: 10px;
+    padding: 20px;
+    text-align: left;
+}
+
+.compensation-card-title {
+    margin: 0;
+    font-weight: 500;
+    color: #333333;
+}
+
+.compensation-card-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.compensation-item {
+    margin: 30px 10px;
+    text-align: center;
+}
+
+.compensation-item p {
+    color: #14a800;
+    font-size: 12px;
+    font-weight: 500; 
+    margin: 0;  
+    margin-top: 5px;
+}
+
+.compensation-item-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #14a800;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.check-div {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.check-div svg {
+    color: #14a800;
+}
+
+.view-full-profile-btn {
+    background-color: #e6fae3;
+    color: #14a800;
+}
+
+.view-full-profile-btn svg{
+    margin-right: 5px;
+}
+
+.link-to-profile {
+    float: right;
+    margin-top: 20px;
+    text-decoration: none;
+}

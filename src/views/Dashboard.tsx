@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { Grid, Avatar, Card } from '@material-ui/core';
-import { VerifiedUser } from '@material-ui/icons';
+import { Grid, Avatar, Card, Button } from '@material-ui/core';
+import { VerifiedUser, EventNote, Event, AssignmentTurnedIn } from '@material-ui/icons';
 import { fetchProfile, fetchSuggestQuestions, fetchChatContracts } from "../graphql/fetchGraphql"
+import CompensationCard from "../components/CompensationCard";
 import "../assests/styles/dashboard.css"
 
 export default function Dashboard() {
@@ -32,6 +33,14 @@ export default function Dashboard() {
         }
     }, [userData, verifyBadge])
 
+    const compensationMemo = useMemo(() => {
+        return userData && <CompensationCard
+            hourly={userData.freelancer_rate}
+            annual={userData.annual_compensation}
+            availability={userData.profile.availability}
+            type={userData.profile.availability_type[0]} />
+    }, [userData])
+
     const suggestQuestionsMemo = useMemo(() => {
         return questions && <Card className="suggest-questions-card">
             <h3 className="card-title">Suggested Questions</h3>
@@ -55,8 +64,51 @@ export default function Dashboard() {
     const chatContractsMemo = useMemo(() => {
         return chatContracts && <Card className="chat-contracts-card">
             <h3 className="card-title">New Interview Request</h3>
+            <br />
+            <hr />
+            <div className="d-flex align-items-center request-info-item">
+                <Avatar src={chatContracts[0].avatar_url} className="interview-request-avatar" />
+                <div>
+                    <p className="request-info-item-title1">{chatContracts[0].name}</p>
+                    <p className="request-info-item-title2">{chatContracts[0].firm_role}</p>
+                </div>
+            </div>
+            <div className="d-flex align-items-center request-info-item">
+                <EventNote />
+                <div>
+                    <p className="request-info-item-title1">{chatContracts[0].job_title}</p>
+                    <p className="request-info-item-title2">Job</p>
+                </div>
+            </div>
+            <div className="d-flex align-items-center request-info-item">
+                <Event />
+                <div>
+                    <p className="request-info-item-title1">{chatContracts[0].name}</p>
+                    <p className="request-info-item-title2">Confirmed interview time in your local time</p>
+                </div>
+            </div>
+            <div className="d-flex align-items-center request-info-item">
+                <EventNote />
+                <div>
+                    <p className="request-info-item-title1">7/9 Requests from Brian Mc Sweeney</p>
+                    <p className="request-info-item-title2">Click to review</p>
+                </div>
+            </div>
+            <hr />
+            <p>
+                <b>{chatContracts[0].name}</b>: Hi, Andrei, Thanks for your applying to our role at Flexhire. We think your profile looks strong and could be a very interesting fit and we would like to talk to you.
+            </p>
+            <hr />
+            <Button className="interview-accept-btn">INTERVIEW ACCEPTED</Button>
         </Card>
     }, [chatContracts])
+
+    const noJobOfferMemo = useMemo(() => {
+        return <Card className="no-offer-card">
+            <div className="no-offer-title"><AssignmentTurnedIn /> <h3>0</h3></div>
+            <p>No job offer at the moment. When a client is interested in working with you, you'll see job offers here.</p>
+        </Card>
+    }, [])
 
     useEffect(() => {
         fetchProfile().then(response => {
@@ -79,10 +131,12 @@ export default function Dashboard() {
                         {userMemo}
                         <Grid container>
                             <Grid item sm={6} xs={12}>
+                                {compensationMemo}
                                 {suggestQuestionsMemo}
                             </Grid>
                             <Grid item sm={6} xs={12}>
                                 {chatContractsMemo}
+                                {noJobOfferMemo}
                             </Grid>
                         </Grid>
                     </div>
