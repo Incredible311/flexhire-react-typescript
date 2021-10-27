@@ -1,0 +1,42 @@
+[
+    {
+        "id": 314,
+        "name": "Brian",
+        "first_name": "Brian",
+        "slug": "brian",
+        "firm_name": "Flexhire",
+        "firm_role": "firm_member",
+        "avatar_url": "https://cdn.filestackcontent.com/mYEzlITiQjudj8OipyFy",
+        "direct_chat_thread_id": {
+            "id": 841,
+            "created_at": "2021-10-18T10:11:26.824-04:00",
+            "updated_at": "2021-10-18T10:11:26.824-04:00",
+            "last_activity_at": "2021-10-19T13:30:04.131-04:00",
+            "hidden": false,
+            "title": null,
+            "avatar_url": null,
+            "enable_meeting_room": false,
+            "meeting_room": null
+        },
+        "last_seen_at": "2021-10-26T00:51:29.586-04:00",
+        "job_title": "Full Stack Software Engineer",
+        "contract_status": "interview_accepted",
+        "timezone_name": "America/Denver",
+        "is_customer_success_rep": false
+    },
+    {
+        "id": 4607,
+        "name": "Enrico",
+        "first_name": "Enrico",
+        "slug": "enrico",
+        "firm_name": "Flexhire",
+        "firm_role": "firm_member",
+        "avatar_url": "https://cdn.filestackcontent.com/RmDwomurQsCEq2FLbpIf",
+        "direct_chat_thread_id": null,
+        "last_seen_at": "2021-10-26T08:13:23.561-04:00",
+        "job_title": null,
+        "contract_status": null,
+        "timezone_name": "Europe/Rome",
+        "is_customer_success_rep": false
+    }
+]

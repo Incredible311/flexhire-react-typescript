@@ -1,0 +1,64 @@
+.flow-card {
+    padding: 40px;
+    margin: 10px;
+}
+
+.flow-item {
+    display: flex;
+    height: 60px;
+    margin-bottom: 10px;
+    border-left: 1px solid #999999;
+}
+
+.active-flow-item {
+    display: flex;
+    height: 60px;
+    margin-bottom: 10px;
+    border-left: 1px solid #999999;
+}
+
+.flow-item .flow-number {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #999999;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -13px;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.active-flow-item .flow-number {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #14a800;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -13px;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.active-flow-item .flow-number svg {
+    font-size: 18px;
+}
+
+.flow-item .flow-title {
+    color: #999999;
+    font-weight: 500;
+    text-align: left;
+
+}
+
+.active-flow-item .flow-title {
+    color: #333333;
+    font-weight: 500;
+    text-align: left;
+
+}

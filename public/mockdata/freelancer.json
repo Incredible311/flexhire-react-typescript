@@ -1,0 +1,326 @@
+{
+    "id": null,
+    "first_name": "Franco",
+    "last_name": null,
+    "status": "unverified",
+    "name": "Franco",
+    "avatar_url": "https://cdn.filestackcontent.com/t1DEF1pXRaq4aCmdoNPN",
+    "can_request_interview": false,
+    "can_make_offer": false,
+    "can_notify": false,
+    "video": null,
+    "verified?": false,
+    "applied_at": null,
+    "created_at": null,
+    "email": null,
+    "hidden": null,
+    "rating_count_low": 0,
+    "rating_count_medium": 0,
+    "rating_count_high": 0,
+    "direct_chat_thread_id": null,
+    "background_check_completed": false,
+    "answers": [],
+    "project_submissions": [],
+    "is_freelancer": true,
+    "references": null,
+    "resume": null,
+    "last_seen_at": "2021-10-08T09:46:11.479-04:00",
+    "timezone": "UTC -3 (America/Argentina/Buenos_Aires)",
+    "timezone_offset": -3,
+    "timezone_name": "America/Argentina/Buenos_Aires",
+    "profile": {
+        "id": null,
+        "availability": "available_now",
+        "availability_type": [
+            "full_time"
+        ],
+        "city": "Comuna 12",
+        "country": "ar",
+        "full_address": null,
+        "region": "Buenos Aires",
+        "rate": null,
+        "slug": "franco-r",
+        "url_github": null,
+        "url_linkedin": null,
+        "url_dribbble": null,
+        "url_blog": null,
+        "freelancer_type": "Technology",
+        "freelancer_type_data": {
+            "id": 1,
+            "name": "Technology",
+            "created_at": "2019-01-09T17:45:57.860-05:00",
+            "updated_at": "2021-01-12T10:18:57.050-05:00",
+            "message": null,
+            "slug": "technology",
+            "jobs_have_code_tests": true,
+            "icon_url": null
+        },
+        "freelancer_type_id": 1,
+        "freelancer_subtypes": [
+            {
+                "id": 35,
+                "name": "Architect",
+                "screening_requires_project": false,
+                "freelancer_type_id": 1,
+                "freelancer_type_name": "Technology",
+                "screening_questions_ids": [],
+                "icon_url": "https://cdn.filestackcontent.com/1ZeDFqSxRVmp8VWNMaij",
+                "slug": "architect"
+            },
+            {
+                "id": 39,
+                "name": "Data Science & Analytics",
+                "screening_requires_project": true,
+                "freelancer_type_id": 1,
+                "freelancer_type_name": "Technology",
+                "screening_questions_ids": [],
+                "icon_url": null,
+                "slug": "data-science-analytics"
+            },
+            {
+                "id": 37,
+                "name": "Software Development",
+                "screening_requires_project": true,
+                "freelancer_type_id": 1,
+                "freelancer_type_name": "Technology",
+                "screening_questions_ids": [],
+                "icon_url": null,
+                "slug": "software-development"
+            },
+            {
+                "id": 7,
+                "name": "Product Management",
+                "screening_requires_project": false,
+                "freelancer_type_id": 1,
+                "freelancer_type_name": "Technology",
+                "screening_questions_ids": [
+                    37,
+                    38
+                ],
+                "icon_url": "https://cdn.filestackcontent.com/v08IV5XDSYC3PP3bmuZo",
+                "slug": "product-management"
+            },
+            {
+                "id": 8,
+                "name": "Project Management",
+                "screening_requires_project": false,
+                "freelancer_type_id": 1,
+                "freelancer_type_name": "Technology",
+                "screening_questions_ids": [
+                    40,
+                    41
+                ],
+                "icon_url": "https://cdn.filestackcontent.com/7bMFzaXS5yTsUfhw6Eow",
+                "slug": "project-management"
+            },
+            {
+                "id": 36,
+                "name": "Business Analyst",
+                "screening_requires_project": false,
+                "freelancer_type_id": 1,
+                "freelancer_type_name": "Technology",
+                "screening_questions_ids": [],
+                "icon_url": "https://cdn.filestackcontent.com/PzrLdfNgSZefs1VboVh6",
+                "slug": "business-analyst"
+            }
+        ],
+        "freelancer_subtype_ids": [
+            35,
+            39,
+            37,
+            7,
+            8,
+            36
+        ],
+        "text_introduction": "\nThe nature of my degree and former experience has prepared me for this position. I am a PM working since more than 10 years in the same company. My studies involved dealing with a lot of independent research, self-motivation and attention to detail. \n\nI have good knowledge of the different tasks the position require having strong Technicals skills. I am able to take on the responsibility of this position with enthusiasm and determination.\n\nThank you for taking the time to consider this application, I look forward to hearing from you.\n\nYours sincerely,\nFranco Russo",
+        "location_longitude": -58.48289,
+        "location_latitude": -34.56859,
+        "location_bounds_0": -59.48289,
+        "location_bounds_1": -35.56859,
+        "location_bounds_2": -57.48289,
+        "location_bounds_3": -33.56859,
+        "job_types": [
+            "permanent"
+        ],
+        "annual_compensation": null,
+        "available_at": "2021-11-17",
+        "open_to_opportunities": true,
+        "total_experience": 11,
+        "visibility": "visibility_public",
+        "min_offer": {
+            "cents": "500.0",
+            "currency_iso": "USD"
+        },
+        "jobs_have_code_tests": true,
+        "managed_team_size": "none",
+        "freelancer_rate": null
+    },
+    "user_skills": [
+        {
+            "id": 76,
+            "name": "Microsoft Office",
+            "experience": 10
+        },
+        {
+            "id": 150,
+            "name": "Functional Specifications",
+            "experience": 10
+        },
+        {
+            "id": 61,
+            "name": "Training",
+            "experience": 6
+        },
+        {
+            "id": 65,
+            "name": "Windows OS",
+            "experience": 10
+        },
+        {
+            "id": 8,
+            "name": "SQL",
+            "experience": 10
+        },
+        {
+            "id": 64,
+            "name": "QA Testing",
+            "experience": 6
+        },
+        {
+            "id": 173,
+            "name": "Planview",
+            "experience": 1
+        },
+        {
+            "id": 151,
+            "name": "Non-functional Specifications",
+            "experience": 3
+        },
+        {
+            "id": 77,
+            "name": "Microsoft Sharepoint",
+            "experience": 6
+        },
+        {
+            "id": 50,
+            "name": "Jira",
+            "experience": 10
+        },
+        {
+            "id": 155,
+            "name": "Jenkins",
+            "experience": 10
+        },
+        {
+            "id": 11,
+            "name": "Java",
+            "experience": 5
+        },
+        {
+            "id": 176,
+            "name": "IT Support",
+            "experience": 10
+        },
+        {
+            "id": 14,
+            "name": "HTML / CSS",
+            "experience": 1
+        },
+        {
+            "id": 104,
+            "name": "Google Analytics",
+            "experience": 1
+        },
+        {
+            "id": 106,
+            "name": "Excel",
+            "experience": 10
+        },
+        {
+            "id": 66,
+            "name": "English",
+            "experience": 10
+        },
+        {
+            "id": 122,
+            "name": "Data Extraction / ETL",
+            "experience": 3
+        },
+        {
+            "id": 42,
+            "name": "AWS (Amazon Web Services)",
+            "experience": 1
+        }
+    ],
+    "timeline_entries": [
+        {
+            "id": 81515,
+            "entry_type": "work",
+            "place": "Citi Bank S.A",
+            "title": "Senior It Project Manager",
+            "description": "❖ Tasks performed : \n Deﬁne and clarify the project scope, including developing a project plan, deliverables, and assessing what is to be included or excluded from the project work. \n Conduct day to day project coordination, planning, and implementation across multiple teams. \n Identify the project needs, including what resources, which team members, and any other departments that must be involved to see a successful outcome. \n Coordinate team effort, assign tasks, give direction to key project players, and keep everyone motivated. \n Create a schedule and project timeline, assuring that each phase of the project remains within budget and project progress is reported. \n Implement and manage change when necessary to meet project outputs and lead quality assurance for deliverables. \n Control and document the progress of the project from start to ﬁnish, as well as evaluate each stage of the project and the end results. \n Process improvements \n Leading the planning and implementation of projects. \n Planning and scheduling project timelines. \n Resource planning and allocation. \n Quality assurance. \n Carrying out risk assessment. \n Managing project administration, including all documentation. \n Meeting budgetary objectives. \n Reporting regularly to senior management. \n Managing client relationships. \n Tracking project performance. \n Project evaluations and results measurement \n Meeting regularly with all stakeholders, including product developers, marketing, customer service, ﬁna...",
+            "date_start": 2011,
+            "date_end": null,
+            "institute_id": null,
+            "skills": [
+                {
+                    "id": 172,
+                    "name": "Management"
+                }
+            ],
+            "institute": null
+        },
+        {
+            "id": 81518,
+            "entry_type": "education",
+            "place": "Facultad Nacional Lomas Del Zamora",
+            "title": "Bachelor Of Computer Science",
+            "description": "System analyst as middle title",
+            "date_start": 2004,
+            "date_end": 2011,
+            "institute_id": null,
+            "skills": [],
+            "institute": null
+        },
+        {
+            "id": 81516,
+            "entry_type": "work",
+            "place": "Siemens",
+            "title": "Functional Analyst",
+            "description": "❖ Tasks performed : \n Generation and review of Use Cases. \n Speciﬁcations. \n Process survey. \n Development and training of the system developed in Access/VBA \n Proposal and implementation of improvements. \n Create functional and technical application documents. \n ❖ Tools used : \n iReport, Toad, SQL Developer, Oracle DB, Access, Visual Basic, Architect Enterprise",
+            "date_start": 2011,
+            "date_end": 2011,
+            "institute_id": null,
+            "skills": [
+                {
+                    "id": 104,
+                    "name": "Google Analytics"
+                }
+            ],
+            "institute": null
+        },
+        {
+            "id": 81517,
+            "entry_type": "work",
+            "place": "I.B.M",
+            "title": "Financial Systems Analyst",
+            "description": "❖ Tasks performed : \n Generation and review of documents Procedure Manuals. \n Architecture Diagrams. \n SOD - Separations Of Duties . \n Systems maintenance and generation of incidents to correct Bugs and make improvements. \n Test cases UAT . \n ❖ Tools used : DB2, QMF, Lotus Notes, Rational Rose, Microsoft Visio. \n \n ❖ Certiﬁcation in audits IBM ASCA, SOX Sarbanes Oxley .",
+            "date_start": 2006,
+            "date_end": 2010,
+            "institute_id": null,
+            "skills": [
+                {
+                    "id": 157,
+                    "name": "Financial Management"
+                },
+                {
+                    "id": 172,
+                    "name": "Management"
+                }
+            ],
+            "institute": null
+        }
+    ],
+    "projects": [],
+    "blog_posts": []
+}

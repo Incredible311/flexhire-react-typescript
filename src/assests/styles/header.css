@@ -34,3 +34,35 @@
     margin-top: 0;
     margin-bottom: 0    ;
 }
+
+.header-link-items {
+    display: flex;
+    margin-left: 20%;
+}
+
+.header-link-items p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #14a800;
+    margin: 0 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.header-link-items p:hover {
+    text-decoration: underline;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+@media screen and (max-width: 560px) {
+    .header-link-items {
+        display: none;
+    }
+  }

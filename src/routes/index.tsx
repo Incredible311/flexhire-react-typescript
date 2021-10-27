@@ -18,7 +18,25 @@ const routes = [
         exact: true,
         path: '/',
         layout: HomeLayout,
-        component: lazy(() => import('../views/Home'))
+        component: lazy(() => import('../views/Dashboard'))
+    },
+    {
+        exact: true,
+        path: '/jobs',
+        layout: HomeLayout,
+        component: lazy(() => import('../views/Jobs'))
+    },
+    {
+        exact: true,
+        path: '/questions',
+        layout: HomeLayout,
+        component: lazy(() => import('../views/Questions'))
+    },
+    {
+        exact: true,
+        path: '/codetest',
+        layout: HomeLayout,
+        component: lazy(() => import('../views/CodeTest'))
     },
     {
         exact: true,

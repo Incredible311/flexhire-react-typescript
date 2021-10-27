@@ -1,132 +1,135 @@
 import React, { useMemo, useState, useCallback, useEffect } from 'react'
 import { Grid, Avatar, Tab, Tabs } from '@material-ui/core';
-import { EditLocation } from '@material-ui/icons';
+import { VerifiedUser, School, Work } from '@material-ui/icons';
+import SubTypeItem from '../components/SubTypeItem';
 import SkillItem from '../components/SkillItem';
 import SwipeableViews from 'react-swipeable-views';
 import VideoCard from '../components/VideoCard';
-import avatarImage from "../assests/images/avatar-1.jpg"
+import { fetchProfile } from '../graphql/fetchGraphql'
 import "../assests/styles/profile.css"
-
-// import apolloClient from '../graphql/apolloClient';
-// import { UserQuery } from "../graphql/queries/query"
-import axios from 'axios';
-
-const skills = [
-    {
-        skill: "React",
-        exp: 7
-    },
-    {
-        skill: "Angular",
-        exp: 5
-    },
-    {
-        skill: "PHP",
-        exp: 9
-    },
-    {
-        skill: "Node.js",
-        exp: 6
-    },
-    {
-        skill: "HTML5",
-        exp: 5
-    },
-    {
-        skill: "Git",
-        exp: 7
-    },
-    {
-        skill: "Vue.js",
-        exp: 3
-    }
-]
 
 export default function Profile() {
 
+    const [userData, setUserData] = useState<any>()
     const [index, setIndex] = useState(0)
 
     const handleChangeIndex = useCallback((event, value) => {
         setIndex(value)
     }, [setIndex])
 
-    const skillsMemo = useMemo(() => {
-        return skills.map((skill, id) => {
-            return <SkillItem key={id} skill={skill.skill} exp={skill.exp} />
+    const verifyBadge = useMemo(() => {
+        if (userData) {
+            return userData.verified ? <div className="d-flex verified-badge">
+                <VerifiedUser /> Verified
+            </div> : <div className="d-flex unverified-badge">
+                <VerifiedUser /> Unverified
+            </div>
+        }
+    }, [userData])
+
+    const subTypesMemo = useMemo(() => {
+        return userData && userData.profile.freelancer_subtypes.map((subtype: any, id: number) => {
+            return <SubTypeItem title={subtype.name} key={id} />
         })
-    }, [])
+    }, [userData])
+
+    const skillsMemo = useMemo(() => {
+        return userData && userData.user_skills.map((skill: any, id: number) => {
+            return <SkillItem key={id} skill={skill.name} exp={skill.experience} />
+        })
+    }, [userData])
+
+    const workEducationMemo = useMemo(() => {
+        return userData && userData.timeline_entries.map((timeline: any, id: number) => {
+            return <div className="timeline-div">
+                <div className="timeline-icon">
+                    {
+                        timeline.entry_type === "work" ? <Work /> : <School />
+                    }
+                </div>
+                <div>
+                    <h4 className="timeline-title">{timeline.title}</h4>
+                    <p className="timeline-date">{timeline.date_start} ~ {timeline.date_end}</p>
+                    <p className="timeline-description">{timeline.description}</p>
+                </div>
+            </div>
+        })
+    }, [userData])
 
     useEffect(() => {
-        // const result = apolloClient.query({
-        //     query: UserQuery,
-        //     fetchPolicy: 'network-only'
-        // });
-
-        axios.get("https://api.flexhire.com/api/v1/freelancers/6278", {
-            headers: {
-                "Content-Type": "application/json",
-                "FLEXHIRE-API-KEY": "2a3ashhf4o6dos4w"
-            }
-        }).then((response) => {
-            console.log("res: ", response)
-        }).catch((err) => {
-            console.log("err: ", err)
+        fetchProfile().then(response => {
+            setUserData(response)
         })
 
-    }, [])
+    }, [setUserData])
+
+    const profileMemo = useMemo(() => {
+        return userData && <div className="profile-container">
+            <div className="profile-top-block">
+                <Grid container>
+                    <Grid item sm={4} xs={12} className="verify-tag-block">
+                        {verifyBadge}
+                        <p className="time-zone-text">{userData.timezone}</p>
+                    </Grid>
+                    <Grid item sm={4} xs={12} className="d-flex justify-center">
+                        <Avatar src={userData.avatar_url} className="profile-avatar" />
+                    </Grid>
+                    <Grid item sm={4} xs={12}></Grid>
+                </Grid>
+                <div>
+                    <h3 className="user-name">{userData.first_name} {userData.last_name} - {userData.profile.freelancer_type} </h3>
+                    <h3 className="user-experience">{userData.profile.total_experience} Years Experience</h3>
+                </div>
+                <div className="d-flex justify-center flex-wrap">
+                    {subTypesMemo}
+                </div>
+                <p className="profile-introduction-text">{userData.profile.text_introduction}</p>
+                <div className="skills-content">
+                    {skillsMemo}
+                </div>
+            </div>
+
+            <hr />
+            <div className="vidoes-content">
+                <Tabs
+                    value={index}
+                    onChange={handleChangeIndex}
+                    indicatorColor="primary"
+                    textColor="primary"
+                    variant="fullWidth"
+                    className="tabs-container"
+                >
+                    <Tab label="Video Answers" />
+                    <Tab label="Work & Education" />
+                </Tabs>
+                <SwipeableViews
+                    index={index}
+                    onChangeIndex={setIndex}
+                >
+                    <div className="video-answers-content">
+                        <Grid container>
+                            <Grid item sm={6} xs={12}>
+                                <VideoCard />
+                            </Grid>
+                            <Grid item sm={6} xs={12}>
+                                <VideoCard />
+                            </Grid>
+                        </Grid>
+                    </div>
+                    <div className="work-education-content">
+                        {workEducationMemo}
+                    </div>
+                </SwipeableViews>
+            </div>
+        </div >
+    }, [userData, index, handleChangeIndex, skillsMemo, subTypesMemo, verifyBadge, workEducationMemo])
 
     return (
         <div className="home-container">
             <Grid container>
                 <Grid item sm={2} xs={1}></Grid>
                 <Grid item sm={8} xs={10}>
-                    <div className="profile-container">
-                        <div className="profile-avatar-block">
-                            <div className="profile-avatar-block-left">
-                                <Avatar src={avatarImage} className="profile-avatar" />
-                                <div>
-                                    <h3 className="user-name">Freddy G.  <span className="experience-period">Techonology (7+Years)</span></h3>
-                                    <p className="user-location"><EditLocation />Moscow, Russia</p>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 className="hourly-price">$30 / hr </h4>
-                            </div>
-                        </div>
-                        <hr />
-                        <div className="skills-content">
-                            {skillsMemo}
-                        </div>
-                        <hr />
-                        <div className="vidoes-content">
-                            <Tabs
-                                value={index}
-                                onChange={handleChangeIndex}
-                                indicatorColor="primary"
-                                textColor="primary"
-                                variant="fullWidth"
-                            >
-                                <Tab label="Video Answers" />
-                                <Tab label="Work & Education" />
-                            </Tabs>
-                            <SwipeableViews
-                                index={index}
-                                onChangeIndex={setIndex}
-                            >
-                                <div className="video-answers-content">
-                                    <Grid container>
-                                        <Grid item sm={6} xs={12}>
-                                            <VideoCard />
-                                        </Grid>
-                                        <Grid item sm={6} xs={12}>
-                                            <VideoCard />
-                                        </Grid>
-                                    </Grid>
-                                </div>
-                                <div className="work-education-content"> Work & Education</div>
-                            </SwipeableViews>
-                        </div>
-                    </div>
+                    {profileMemo}
                 </Grid>
                 <Grid item sm={2} xs={1}></Grid>
             </Grid>
